@@ -18,13 +18,16 @@
   "author": "Johan Stived Osorio Vélez",
   "license": "MIT",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "connect-multiparty": "^2.2.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "jwt-simple": "^0.5.6",
     "moment": "^2.29.1",
-    "morgan": "^1.10.0",
-    "mysql": "^2.18.1"
+    "mongoose": "^6.3.4",
+    "mongoose-auto-increment": "^5.0.1",
+    "mongoose-pagination": "^1.0.0",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
