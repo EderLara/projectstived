@@ -28,8 +28,14 @@ function testControlUser (req, res){
     })
 }
 
-
 /* ---------------------------------------------------- CRUD ---------------------------------------------------- */
+function saveUser(req, res){
+    
+}
+
+function login(req, res){
+
+}
 
 
 module.exports = {
