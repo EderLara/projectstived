@@ -17,7 +17,7 @@ const { mensajes } = require('../util/estados')
 exports.ensureAuth = function (req, res, next) {
     if (!req.headers.authorization) {
         return res.status(403).send({
-            mensaje : 'Error de autenticación'
+            mensaje : mensajes.m403
         })
     }
     // Cabecera sin comillas dobles o simples (usamos replace funciton):

@@ -23,7 +23,8 @@ const jwt = require('../services/jwt')
 function testControlUser (req, res){
     console.log(req.body)
     res.status(200).send({
-        ahora : momento().format('LTS')
+        ahora : momento().format('LTS'),
+        mensajes: mensajes
     })
 }
 

@@ -5,7 +5,9 @@
 
  'use strict';
 
- let mensajes = {
+ module.exports = {
+
+  mensajes: {
          m200: 'La petición se ha completado correctamente',
          m400: 'Error de Registro: Se deben llenar los campos obligatorios',
          m401: 'Petición Expirada!',
@@ -16,5 +18,4 @@
          m409: 'Ya se encuentra registrado en la base de datos',
          m500: 'Ha ocurrido un error en la petición a la base de datos, revise las conexiones'
      }
- 
- module.exports = mensajes;
+} 
