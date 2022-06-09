@@ -85,7 +85,34 @@ function saveUser(req, res){
 
 // Función para login:
 function loginUser(req, res){
-    
+
+    let params = req.body;
+    let nickname = params.nickname;
+    let passuser = params.passuser;
+
+    // Query para login:
+    User.findOne({NickName: nickname}, (err, user)=>{
+        if (err) throw err;
+        if (user){
+            // Encripto el pass del formulario:
+            bcrypt.compare(passuser, user.PassUser, (err, ok)=>{
+                if (err) throw err;
+                if (ok){
+                    // Validación de parametro token:
+                    if (params.getToken) {      
+                        return res.status(200).send({
+                            token : jwt.createToken(user)
+                        });
+                    } else {
+                        // Devuelvo el usuario logueado:
+                        return res.status(200).send({ user });
+                    }
+                }
+            })
+        }else {
+            return res.status(404).send({ mensaje: mensajes.m404 })
+        }
+    })
 }
 
 // Función para guardar a partir de un archivo plano:
@@ -93,12 +120,8 @@ function saveLotOfUser(req, res){
 
 }
 
-function login(req, res){
-
-}
-
-
 module.exports = {
     testControlUser,
-    saveUser
+    saveUser,
+    loginUser
 }
