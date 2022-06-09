@@ -11,7 +11,7 @@ const morgan = require('morgan');
 const app = express();
 // routes:
 const userRoutes = require('./routes/user.route'); 
-//  const dimeRoutes = require('./routes/rutadimension');
+const dimeRoutes = require('./routes/dimensions.route');
 
 
 // Middlewares:
@@ -30,7 +30,7 @@ app.use((req, res, next) =>{
 
 // Exports routes:
 app.use('/api', userRoutes);
-//  app.use('/api', dimeRoutes);
+app.use('/api', dimeRoutes);
 
 
 // Export Server:

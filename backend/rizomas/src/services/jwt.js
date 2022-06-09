@@ -11,7 +11,7 @@ const jwt = require('jwt-simple')
 const momento = require('moment')
 const secretkey = process.env.SECRET
 
-exports.createToken = function (user){
+exports.createToken = function (usuario){
     let payload = {
         sub : usuario._id,
         idenuser : usuario.DatosUser.IdenUser,

@@ -22,5 +22,4 @@ mongoose.connect(process.env.DBSTRING)
         console.log('Server listen:',url + ':'+ port);
     })
 })
-.catch(err => console.log(err));
-    
+.catch(err => console.log(err)); 
