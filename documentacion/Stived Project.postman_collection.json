@@ -1,0 +1,302 @@
+{
+	"info": {
+		"_postman_id": "95818b0a-e8ca-4945-a858-cc84a50faa5f",
+		"name": "Stived Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4457105"
+	},
+	"item": [
+		{
+			"name": "TestUser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/api/testuser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"api",
+						"testuser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UsuarioNuevo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nickname",
+							"value": "test@mail.com",
+							"description": "62a127ca44fde6f2ae49e7ea",
+							"type": "text"
+						},
+						{
+							"key": "passuser",
+							"value": "testuser",
+							"description": "62a136c1d9af3bf74f3cad37",
+							"type": "text"
+						},
+						{
+							"key": "tipouser",
+							"value": "62a136c1d9af3bf74f3cad37",
+							"type": "text"
+						},
+						{
+							"key": "idenuser",
+							"value": "'123123123'",
+							"type": "text"
+						},
+						{
+							"key": "primenom",
+							"value": "Test",
+							"type": "text"
+						},
+						{
+							"key": "segunnom",
+							"value": "User",
+							"type": "text"
+						},
+						{
+							"key": "primeape",
+							"value": "Test",
+							"type": "text"
+						},
+						{
+							"key": "segunape",
+							"value": "LastName",
+							"type": "text"
+						},
+						{
+							"key": "emaiuser",
+							"value": "personal@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "proguser",
+							"value": "Sociales",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/api/usuario/nuevo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"api",
+						"usuario",
+						"nuevo"
+					],
+					"query": [
+						{
+							"key": "nickname",
+							"value": "user@mail.com",
+							"disabled": true
+						},
+						{
+							"key": "passuser",
+							"value": "elpassword",
+							"disabled": true
+						},
+						{
+							"key": "tipouser",
+							"value": "Docente",
+							"disabled": true
+						},
+						{
+							"key": "idenuser",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "primenom",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "segunnom",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "primeape",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "segunape",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "emaiuser",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "proguser",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tipos_Usuario/Nuevo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre_tipouser",
+							"value": "Administrador",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/api/perfiles/nuevo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"api",
+						"perfiles",
+						"nuevo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Inicio_de_sesion",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nickname",
+							"value": "test@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "passuser",
+							"value": "testuser",
+							"type": "text"
+						},
+						{
+							"key": "getToken",
+							"value": "true",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/api/usuario/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"api",
+						"usuario",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Activar/Inactivar_Usuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "EstaUser",
+							"value": "Inactivo",
+							"description": "62a1418bd89e02ccebbd3fc3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/api/usuario/62a1418bd89e02ccebbd3fc3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"api",
+						"usuario",
+						"62a1418bd89e02ccebbd3fc3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cambiar Rol de Usuario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tipouser",
+							"value": "62a1625d947afa6197b12576",
+							"description": "62a1625d947afa6197b12576",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3100/api/usuario/rol/62a1418bd89e02ccebbd3fc3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"api",
+						"usuario",
+						"rol",
+						"62a1418bd89e02ccebbd3fc3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

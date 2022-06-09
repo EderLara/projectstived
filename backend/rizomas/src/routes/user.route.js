@@ -15,7 +15,9 @@ const md_auth = require('../middlewares/auth');
 
 // Rutas:
 api.get('/testuser', userControl.testControlUser);
-api.post('/newuser', userControl.saveUser);
-api.post('/login', userControl.loginUser)
+api.post('/usuario/nuevo', userControl.saveUser);
+api.post('/usuario/login', userControl.loginUser);
+api.put('/usuario/:idusuario', userControl.delUser);
+api.put('/usuario/rol/:idusuario', userControl.changeRol);
 
 module.exports = api;

@@ -49,11 +49,10 @@ function saveUser(req, res){
         console.log(params);
 
         // Validamos duplicidad de usuario:
-        User.find({ $or: [
+        User.find({ $and: [
                             {nickmame: usuario.NickName},
                             {emaiuser: usuario.DatosUser.EmaiUser},
-                            {idenuser: usuario.DatosUser.IdenUser},
-                            {tipouser: usuario.TipoUser}
+                            {idenuser: usuario.DatosUser.IdenUser}
                          ]}).exec((err, users) =>{
                             if (err) return res.status(500).send({mensaje: mensajes.m500});
                             if (users && users.length >= 1){
@@ -81,6 +80,49 @@ function saveUser(req, res){
     } else {
         res.status(200).send({ mensaje: mensajes.m000 });
     }
+}
+
+// Función para guardar a partir de un archivo plano:
+function saveLotOfUser(req, res){
+
+}
+
+// Funcion Activar e inactivar usuario:
+function delUser(req, res){
+
+    let usuario = req.params.idusuario;
+    let update = req.body;
+
+    // Seguridad para no eliminar el campo password:
+    delete update.PassUser;
+
+    // Query para buscar y actualizar:
+    User.findByIdAndUpdate(usuario, update, {new: true}, (err, userUpdated)=>{
+        if (err) throw err;
+        if (!userUpdated) return res.status(404).send({ mensaje: mensajes.m404 });
+
+        // Si todo sale bien:
+        return res.status(200).send({ Usuario: usuario })
+    });
+}
+
+// Funcion AsignarRol:
+function changeRol(req, res){
+
+    let usuario = req.params.idusuario;
+    let update = req.body;
+
+    // Seguridad para no eliminar el campo password:
+    delete update.PassUser;
+
+    // Query para buscar y actualizar:
+    User.findByIdAndUpdate(usuario, update, {new: true}, (err, userUpdated)=>{
+        if (err) throw err;
+        if (!userUpdated) return res.status(404).send({ mensaje: mensajes.m404 });
+
+        // Si todo sale bien:
+        return res.status(200).send({ Usuario: usuario })
+    });
 }
 
 // Función para login:
@@ -115,13 +157,10 @@ function loginUser(req, res){
     })
 }
 
-// Función para guardar a partir de un archivo plano:
-function saveLotOfUser(req, res){
-
-}
-
 module.exports = {
     testControlUser,
-    saveUser,
-    loginUser
+    saveUser,               // RF1
+    delUser,                // RF3
+    changeRol,              // RF4
+    loginUser               // RF5
 }
