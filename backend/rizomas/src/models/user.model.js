@@ -22,7 +22,8 @@ const UsuarioSchema = Schema({
         SegunApe : String,
         EmaiUser : String,                                          // Correo Electrónico personal del usuario 
         ProgUser : String                                           // Programa al que pertenece el usuario
-    }
+    },
+    creado_el: { type : Date, default: Date.now }                   // Creado el..
 })
 
 module.exports = mongoose.model('Usuario', UsuarioSchema)
