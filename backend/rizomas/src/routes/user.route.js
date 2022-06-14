@@ -18,6 +18,7 @@ api.get('/testuser', userControl.testControlUser);
 api.post('/usuario/nuevo', userControl.saveUser);
 api.post('/usuario/login', userControl.loginUser);
 api.put('/usuario/:idusuario', userControl.delUser);
-api.put('/usuario/rol/:idusuario', userControl.changeRol);
+api.put('/usuario/rol/:usuarioid', userControl.changeRol);
+api.get('/usuario/buscar/:usuario', userControl.findUser);
 
 module.exports = api;
