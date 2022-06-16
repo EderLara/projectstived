@@ -29,6 +29,9 @@
 		{
 			"name": "UsuarioNuevo",
 			"request": {
+				"auth": {
+					"type": "noauth"
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -36,13 +39,13 @@
 					"urlencoded": [
 						{
 							"key": "nickname",
-							"value": "test@mail.com",
-							"description": "62a127ca44fde6f2ae49e7ea",
+							"value": "usuarios@mail.com",
+							"description": "62a1418bd89e02ccebbd3fc3",
 							"type": "text"
 						},
 						{
 							"key": "passuser",
-							"value": "testuser",
+							"value": "prueba",
 							"description": "62a136c1d9af3bf74f3cad37",
 							"type": "text"
 						},
@@ -53,32 +56,32 @@
 						},
 						{
 							"key": "idenuser",
-							"value": "'123123123'",
+							"value": "9879879987",
 							"type": "text"
 						},
 						{
 							"key": "primenom",
-							"value": "Test",
+							"value": "Testerin",
 							"type": "text"
 						},
 						{
 							"key": "segunnom",
-							"value": "User",
+							"value": "Users",
 							"type": "text"
 						},
 						{
 							"key": "primeape",
-							"value": "Test",
+							"value": "Tests",
 							"type": "text"
 						},
 						{
 							"key": "segunape",
-							"value": "LastName",
+							"value": "LastNames",
 							"type": "text"
 						},
 						{
 							"key": "emaiuser",
-							"value": "personal@mail.com",
+							"value": "mipersonals@mail.com",
 							"type": "text"
 						},
 						{
@@ -166,9 +169,8 @@
 					"urlencoded": [
 						{
 							"key": "nombre_tipouser",
-							"value": "Administrador",
-							"type": "text",
-							"disabled": true
+							"value": "Docente",
+							"type": "text"
 						}
 					]
 				},
@@ -243,7 +245,7 @@
 					"urlencoded": [
 						{
 							"key": "EstaUser",
-							"value": "Inactivo",
+							"value": "Activo",
 							"description": "62a1418bd89e02ccebbd3fc3",
 							"type": "text"
 						}
@@ -274,8 +276,8 @@
 					"mode": "urlencoded",
 					"urlencoded": [
 						{
-							"key": "tipouser",
-							"value": "62a1625d947afa6197b12576",
+							"key": "TipoUser",
+							"value": "62a136c1d9af3bf74f3cad37",
 							"description": "62a1625d947afa6197b12576",
 							"type": "text"
 						}
@@ -292,6 +294,28 @@
 						"api",
 						"usuario",
 						"rol",
+						"62a1418bd89e02ccebbd3fc3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3100/api/usuario/buscar/62a1418bd89e02ccebbd3fc3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3100",
+					"path": [
+						"api",
+						"usuario",
+						"buscar",
 						"62a1418bd89e02ccebbd3fc3"
 					]
 				}

@@ -7,6 +7,7 @@
 
 // Modelo de datos:
 const TipoUser = require('../models/tipouser.model');
+const Encuesta = require('../models/encuesta.model');
 
 const { mensajes } = require('../util/estados');
 const momento = require('moment');
@@ -42,7 +43,39 @@ function saveTipoUser(req, res){
                     })
 }
 
+// Controles de Encuesta:
+function crearEncuesta(req, res){
+    // Variable para cargar el formulario:
+    let params = req.body;
+
+    // Usar modelo:
+    let encuesta = new Encuesta();
+
+    // Marcamos los campos obligatorios:
+    if (params.pregunta) {
+        // Cargo los inputs
+        encuesta.pregunta = params.pregunta;
+        encuesta.descripcion = params.descripcion;
+
+        // Validando los repetidos:
+        Encuesta.findOne({ pregunta: encuesta.pregunta }).exec((err, pregunta)=>{
+            if (err) throw err;
+            if(pregunta && pregunta.lenght >=1){
+                return res.status(200).send({ mensaje: 'Ya tienes esa pregunta' });
+            }else {
+                encuesta.save((err, preguntaStored)=>{
+                    if (err) throw err;
+                    if (preguntaStored) return res.status(200).send({ pregunta: preguntaStored });
+                })
+            }
+        })
+        
+    } else {
+        return res.status(200).send({ mensaje: mensajes.m000 });
+    }
+}
 
 module.exports = {
-    saveTipoUser
+    saveTipoUser,
+    crearEncuesta
 }

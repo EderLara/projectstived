@@ -20,5 +20,6 @@ api.post('/usuario/login', userControl.loginUser);
 api.put('/usuario/:idusuario', userControl.delUser);
 api.put('/usuario/rol/:usuarioid', userControl.changeRol);
 api.get('/usuario/buscar/:usuario', userControl.findUser);
+api.get('/usuario/todos', userControl.listUsers)
 
 module.exports = api;

@@ -84,7 +84,7 @@ function saveUser(req, res){
 
 // Función para guardar a partir de un archivo plano:
 function saveLotOfUser(req, res){
-    return res.status(200).send({ mensaje: 'En Construcción' })
+    return res.status(404).send({ mensaje: 'En Construcción' })
 }
 
 // Funcion Activar e inactivar usuario:
@@ -114,6 +114,18 @@ function findUser(req, res){
         if (err) throw err;
         if (!userFound) return res.status(404).send({ mensaje:mensajes.m404 });
         return res.status(200).send({ userFound });
+    })
+}
+
+// Listar todos los usuarios:
+function listUsers(req, res){
+    // Traemos todos los usuarios de la base de datos:
+    User.find((err, usuariosTodos)=>{
+        if (err) throw err;
+        if (!usuariosTodos){
+            return res.status(404).send({ mensaje: mensajes.m404 })
+        }
+        return res.status(200).send({ usuarios: usuariosTodos })
     })
 }
 
@@ -174,6 +186,7 @@ module.exports = {
     saveLotOfUser,          // RF2
     delUser,                // RF3
     findUser,               // RF4
+    listUsers,              // RF4
     loginUser,              // RF5
     changeRol               // RF6
 }
